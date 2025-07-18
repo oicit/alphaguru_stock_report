@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BayCurrent Consulting: An Investor's Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 380px;
+            }
+        }
+        .kpi-card {
+            background-color: #005F73;
+            color: white;
+        }
+        .accent-bg { background-color: #0A9396; }
+        .accent-text { color: #EE9B00; }
+        .highlight-text { color: #CA6702; }
+        .section-title {
+            color: #005F73;
+            font-weight: 900;
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            border-bottom: 4px solid #EE9B00;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease-in-out;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .flow-arrow {
+            font-size: 2rem;
+            color: #0A9396;
+            align-self: center;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl md:text-2xl font-bold text-gray-800">BayCurrent Consulting (6532.T)</h1>
+                </div>
+                <div class="hidden md:block">
+                    <p class="text-sm text-gray-500">A Deep-Dive Analysis for Investors</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 sm:p-6 lg:p-8">
+
+        <section id="intro" class="mb-12">
+            <div class="text-center">
+                <h2 class="text-4xl md:text-5xl font-black text-[#005F73] leading-tight">Japan's Digital Transformation Powerhouse</h2>
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-gray-600">BayCurrent has redefined Japan's consulting landscape, emerging as a high-growth leader by seamlessly bridging high-level strategy with hands-on digital implementation. This analysis deconstructs their model, market position, and future trajectory.</p>
+            </div>
+        </section>
+
+        <section id="kpis" class="mb-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                <div class="kpi-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-4xl font-bold">~¥770B</h3>
+                    <p class="mt-2 text-lg font-medium opacity-90">Market Capitalization</p>
+                </div>
+                <div class="kpi-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-4xl font-bold">30%+</h3>
+                    <p class="mt-2 text-lg font-medium opacity-90">Revenue CAGR (5-Year)</p>
+                </div>
+                <div class="kpi-card p-6 rounded-lg shadow-lg">
+                    <h3 class="text-4xl font-bold">~7,000</h3>
+                    <p class="mt-2 text-lg font-medium opacity-90">Consultants in One Pool</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="growth" class="mb-16">
+            <h2 class="section-title">The Hyper-Growth Engine</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="card">
+                    <h3 class="font-bold text-xl mb-2 text-gray-700">Explosive Revenue & Profit Growth</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Fueled by Japan's urgent need for digital transformation, BayCurrent has consistently delivered market-leading growth. Their ability to execute complex DX projects has made them a go-to partner for major Japanese corporations.</p>
+                    <div class="chart-container">
+                        <canvas id="revenueGrowthChart"></canvas>
+                    </div>
+                </div>
+                <div class="card">
+                    <h3 class="font-bold text-xl mb-2 text-gray-700">Diversified Client Base</h3>
+                    <p class="text-gray-600 mb-4 text-sm">While strong in High Tech and Financial Services, BayCurrent serves a wide array of industries, demonstrating the universal applicability of their DX consulting model and reducing single-sector dependency.</p>
+                    <div class="chart-container">
+                        <canvas id="industryDonutChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="moat" class="mb-16">
+            <h2 class="section-title">The Uncopyable Business Model</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-4xl mx-auto text-center">BayCurrent's competitive advantage isn't a single feature, but a tightly integrated system of talent, strategy, and execution that legacy competitors struggle to replicate.</p>
+            <div class="card md:col-span-2">
+                <h3 class="font-bold text-xl mb-4 text-center text-gray-700">The "One-Pool" Advantage: Strategy to Implementation</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4 p-4">
+                    <div class="text-center p-4 border-2 border-dashed border-[#94D2BD] rounded-lg">
+                        <p class="font-bold text-lg text-[#005F73]">Client DX Need</p>
+                        <p class="text-sm text-gray-500">Complex Challenge</p>
+                    </div>
+                    <div class="flow-arrow">&#10140;</div>
+                    <div class="text-center p-4 bg-[#E9D8A6] rounded-lg shadow-md">
+                        <p class="font-bold text-lg text-[#CA6702]">The "One-Pool"</p>
+                        <p class="text-sm font-semibold text-gray-700">~7,000 Experts</p>
+                        <p class="text-xs text-gray-600">Strategy, Data, Tech, Industry</p>
+                    </div>
+                    <div class="flow-arrow">&#10140;</div>
+                    <div class="text-center p-4 bg-[#94D2BD] rounded-lg shadow-md">
+                        <p class="font-bold text-lg text-[#005F73]">Bespoke Team</p>
+                        <p class="text-sm font-semibold text-gray-700">Assembled in Days</p>
+                        <p class="text-xs text-gray-600">No Silos, Best-Fit Talent</p>
+                    </div>
+                    <div class="flow-arrow">&#10140;</div>
+                    <div class="text-center p-4 border-2 border-solid border-[#0A9396] rounded-lg">
+                        <p class="font-bold text-lg text-[#005F73]">End-to-End Delivery</p>
+                        <p class="text-sm text-gray-500">Strategy, Build, & Run</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competition" class="mb-16">
+            <h2 class="section-title">Dominating the Competitive Arena</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-4xl mx-auto text-center">BayCurrent outmaneuvers different competitor types by combining their best attributes into a single, agile offering.</p>
+            <div class="card">
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="p-4 bg-gray-100 font-bold text-gray-600 border-b-2 border-gray-200">Competitor Type</th>
+                                <th class="p-4 bg-gray-100 font-bold text-gray-600 border-b-2 border-gray-200">Typical Weakness</th>
+                                <th class="p-4 bg-[#0A9396] text-white font-bold border-b-2 border-gray-200">BayCurrent's Advantage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 border-b border-gray-200 font-semibold text-gray-700">Global Strategy (MBB)</td>
+                                <td class="p-4 border-b border-gray-200">Often too theoretical; expensive; weak on implementation.</td>
+                                <td class="p-4 border-b border-gray-200 font-medium text-gray-800">Delivers realistic, executable strategy combined with hands-on implementation at a better value.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 border-b border-gray-200 font-semibold text-gray-700">Global Tech (Accenture)</td>
+                                <td class="p-4 border-b border-gray-200">Can be bureaucratic, slow-moving, and siloed by function.</td>
+                                <td class="p-4 border-b border-gray-200 font-medium text-gray-800">More agile and flexible due to the "One-Pool" model. Faster deployment of tailored, senior teams.</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 border-b border-gray-200 font-semibold text-gray-700">Domestic SIs (NTT Data, NEC)</td>
+                                <td class="p-4 border-b border-gray-200">Perceived as legacy-focused, inflexible, and slow. Often vendor-locked.</td>
+                                <td class="p-4 border-b border-gray-200 font-medium text-gray-800">Vendor-agnostic, brings modern methodologies, and excels in new domains like AI and Cloud where SIs lag.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="mt-6">
+                    <h3 class="font-bold text-xl mb-2 text-gray-700">The Client Verdict</h3>
+                    <p class="text-gray-600 mb-4 text-sm">Feedback from clients consistently praises BayCurrent for the high quality of their consultants, their strong sense of ownership, and their ability to drive projects to completion, contrasting with the often-siloed or bureaucratic nature of larger competitors.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="genai" class="mb-16">
+            <h2 class="section-title">The Generative AI Paradigm Shift</h2>
+            <p class="text-lg text-gray-600 mb-8 max-w-4xl mx-auto text-center">Generative AI is not a threat, but the next major growth catalyst. For Japanese companies lagging in AI adoption, BayCurrent is positioned to be the essential guide.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="card border-l-4 border-[#0A9396]">
+                    <h3 class="font-bold text-xl mb-2 text-[#0A9396]">Opportunity: The AI Transformation Partner</h3>
+                    <p class="text-gray-600">The core opportunity is moving up the value chain from "doing" to "guiding." BayCurrent can lead Japanese corporations in AI strategy, vendor selection, process re-engineering, and implementation, a massive, high-margin service area.</p>
+                </div>
+                <div class="card border-l-4 border-[#AE2012]">
+                    <h3 class="font-bold text-xl mb-2 text-[#AE2012]">Risk: Commoditization of Low-End Tasks</h3>
+                    <p class="text-gray-600">Basic research, report generation, and simple coding are vulnerable to automation. This poses a risk to billing for junior-level work but forces a healthy shift towards higher-value strategic advisory.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="risks" class="mb-16">
+             <h2 class="section-title">Key Investor Questions & Risks</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                 <div class="card">
+                    <div class="flex items-center mb-3">
+                        <div class="text-3xl mr-4 text-[#BB3E03]">&#9888;</div>
+                        <h3 class="font-bold text-lg text-gray-700">Sustaining Hyper-Growth</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Can 30%+ growth be maintained as the law of large numbers kicks in? Market share gains from legacy SIs provide a long runway, but the pace is a key variable to monitor.</p>
+                 </div>
+                 <div class="card">
+                    <div class="flex items-center mb-3">
+                        <div class="text-3xl mr-4 text-[#BB3E03]">&#9888;</div>
+                        <h3 class="font-bold text-lg text-gray-700">Talent & Quality Scaling</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">Can BayCurrent continue to recruit, train, and retain top-tier talent at scale without diluting the quality that defines their brand? The "One-Pool" model's scalability is critical.</p>
+                 </div>
+                 <div class="card">
+                    <div class="flex items-center mb-3">
+                        <div class="text-3xl mr-4 text-[#BB3E03]">&#9888;</div>
+                        <h3 class="font-bold text-lg text-gray-700">Margin & Pricing Power</h3>
+                    </div>
+                    <p class="text-gray-600 text-sm">As competition in the DX space heats up and GenAI alters service delivery, will BayCurrent maintain its premium pricing and high operating margins? Their ability to lead AI transformations is key.</p>
+                 </div>
+             </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-[#005F73] text-white mt-12">
+        <div class="container mx-auto p-6 text-center">
+            <p>This infographic is for informational purposes only and does not constitute investment advice. Data is synthesized from public sources and represents an analytical viewpoint as of July 2025.</p>
+            <p class="text-sm opacity-75 mt-2">Analysis by Canvas Infographics.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const wrapLabel = (label) => {
+                if (label.length <= 16) {
+                    return label;
+                }
+                const words = label.split(' ');
+                let lines = [];
+                let currentLine = '';
+                for (const word of words) {
+                    if ((currentLine + ' ' + word).trim().length > 16) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                }
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                } else {
+                    return label;
+                }
+            };
+            
+            const brilliantBlues = {
+                primary: '#0A9396',
+                secondary: '#94D2BD',
+                accent1: '#EE9B00',
+                accent2: '#CA6702',
+                text: '#005F73',
+                danger: '#AE2012',
+            };
+
+            const revenueCtx = document.getElementById('revenueGrowthChart');
+            if(revenueCtx) {
+                new Chart(revenueCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['FY2020', 'FY2021', 'FY2022', 'FY2023', 'FY2024'],
+                        datasets: [{
+                            label: 'Revenue (JPY Billions)',
+                            data: [42.1, 57.7, 76.1, 95.3, 118.5],
+                            borderColor: brilliantBlues.primary,
+                            backgroundColor: 'rgba(10, 147, 150, 0.1)',
+                            fill: true,
+                            tension: 0.3,
+                            borderWidth: 3
+                        }, {
+                            label: 'Operating Profit (JPY Billions)',
+                            data: [13.0, 19.1, 26.5, 34.0, 42.1],
+                            borderColor: brilliantBlues.accent1,
+                            backgroundColor: 'rgba(238, 155, 0, 0.1)',
+                            fill: true,
+                            tension: 0.3,
+                            borderWidth: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            y: { beginAtZero: true }
+                        },
+                        plugins: {
+                            legend: { position: 'top' },
+                            tooltip: { callbacks: { title: tooltipTitleCallback } }
+                        }
+                    }
+                });
+            }
+
+            const industryCtx = document.getElementById('industryDonutChart');
+            if(industryCtx) {
+                new Chart(industryCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: [
+                            wrapLabel('High Tech & Telecom'),
+                            wrapLabel('Financial Services'),
+                            wrapLabel('Manufacturing'),
+                            wrapLabel('Government & Public Sector'),
+                            wrapLabel('Other Industries')
+                        ],
+                        datasets: [{
+                            label: 'Revenue by Industry',
+                            data: [28, 25, 18, 15, 14],
+                            backgroundColor: [
+                                brilliantBlues.primary,
+                                brilliantBlues.accent1,
+                                brilliantBlues.secondary,
+                                brilliantBlues.accent2,
+                                '#6c757d'
+                            ],
+                            borderColor: '#ffffff',
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    boxWidth: 20
+                                }
+                             },
+                            tooltip: { callbacks: { title: tooltipTitleCallback } }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
